@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="css/style.css"> -->
+    <script src="js/angular.min.js"></script>
+    <style type="text/css">
+     i {
+        font-size: 12px;   
+     }
+     .text-error {
+        color: red;
+     }
+    </style>
+
+</head>
+<body>
+<div class="container" ng-controller="DictionaryController">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="text-center">SMART DICTIONARY</h1>
+            <input type="text" class="form-control" ng-model="searchWord" placeholder="Search word" ng-enter="findWord()">
+            <h3 class="text-center" ng-hide="showErr">{{searchWord}}</h3>
+            <h3 class="text-center text-error" ng-show="showErr">-Word Not Found-</h3>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="row" ng-hide="showErr">
+        <div class="col-sm-3" ng-repeat="result in results">
+            <p>{{$index + 1}}. {{result.text}}</p> 
+            <br>
+        </div>
+    </div>                      
+</div>
+</body>
+    <script src="js/app.js"></script>
+</html>
